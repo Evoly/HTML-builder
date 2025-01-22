@@ -8,6 +8,7 @@ const pathToCopy = path.join(__dirname, copyDir);
 
 (async () => {
   try {
+    await fsp.rm(pathToCopy, { recursive: true, force: true });
     fsp.mkdir(pathToCopy, { recursive: true });
 
     const fileList = await fsp.readdir(pathToDir);
